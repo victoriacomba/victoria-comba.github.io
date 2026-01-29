@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maria Victoria Comba – Coordinación de Producción</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #7b001c;      /* rojo frío profundo */
+      --text: #ff7abf;   /* rosa opaco */
+      --accent: #ff9fd5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 96px 32px 160px;
+    }
+
+    h1, h2, h3, p, span, div {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 120px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      margin-bottom: 32px;
+    }
+
+    .hero-role {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-claim {
+      max-width: 820px;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .section {
+      margin-top: 160px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: flex-start;
+    }
+
+    .section h2 {
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 800;
+      opacity: 0.85;
+      padding-top: 6px;
+    }
+
+    .section p {
+      font-size: 18px;
+      max-width: 720px;
+    }
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 24px;
+    }
+
+    .job-title {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .job-desc {
+      font-size: 17px;
+    }
+
+    .portfolio {
+      margin-top: 200px;
+    }
+
+    .portfolio h2 {
+      font-size: 14px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 48px;
+    }
+
+    .grid {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+      flex-wrap: nowrap;
+      max-width: 100%;
+      margin: 0 auto;
+      padding-top: 40px;
+    }
+
+    @media (max-width: 1100px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 420px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      position: relative;
+      width: 120px;
+      height: 170px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      margin-left: -32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      transition: transform 0.35s ease, z-index 0.35s ease;
+    }
+
+    .card:first-child { margin-left: 0; }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.05);
+      z-index: 10;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%);
+      transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.04);
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+    .card::after {
+      content: '▶';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: var(--accent);
+      background: rgba(0,0,0,0.15);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::after { opacity: 1; }
+
+    footer {
+      margin-top: 200px;
+      font-size: 14px;
+      opacity: 0.85;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .section { grid-template-columns: 1fr; gap: 32px; }
+      .job { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <header>
+      <h1>MARIA<br>VICTORIA<br>COMBA</h1>
+      <div class="hero-role">Coordinadora de Producción · Productora Audiovisual</div>
+      <div class="hero-claim">
+        Coordinación de producción audiovisual para proyectos creativos y publicitarios, combinando organización, creatividad y mirada técnica.
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Perfil</h2>
+      <p>
+        Soy coordinadora de producción y productora audiovisual con experiencia en publicidad, eventos, televisión y cine. Trabajo organizando equipos, tiempos, logística y flujos de trabajo, tanto en rodajes en locación como en estudio.
+        <br><br>
+        Hablo inglés nivel C2 certificado por Cambridge y trabajo como intérprete profesional. Disfruto especialmente usar herramientas digitales y automatización para simplificar procesos, ordenar información y anticiparme a los problemas, combinando sensibilidad creativa con una mirada práctica y resolutiva.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Experiencia</h2>
+      <div class="experience-list">
+
+        <div class="job">
+          <div class="job-title">LOS ANÓNIMOS PRODUCTORA · Eventos y publicidad</div>
+          <div class="job-desc">Producción de eventos masivos, activaciones de marca y rodajes publicitarios en Bariloche. Ingresé como asistente de producción y en pocos meses pasé a desempeñarme como productora general, coordinando simultáneamente múltiples proyectos en condiciones climáticas adversas. Esta etapa consolidó mi capacidad organizativa, liderazgo operativo y manejo de logística compleja en campo.</div>
+        </div>
+
+        <div class="job">
+          <div class="job-title">PROGRAMAS DE TV · Casting, contenido y coordinación</div>
+          <div class="job-desc">Trabajo en televisión en proyectos como Flechazo, Amor Oculto, La Tarde del Nueve y Escape Perfecto. Coordinación de casting, postproducción y gestión de grandes volúmenes de información, incorporando herramientas digitales para optimizar flujos de trabajo, orden y eficiencia en contextos de producción en vivo.</div>
+        </div>
+
+        <div class="job">
+          <div class="job-title">WONDERLAB · Tecnología aplicada a eventos</div>
+          <div class="job-desc">Producción y operación de sistemas interactivos para eventos sociales y corporativos. Coordinación técnica, logística, armado, troubleshooting y gestión de equipos en entornos que integraban dispositivos, sonido, imagen, apps y sistemas interconectados.</div>
+        </div>
+
+        <div class="job">
+          <div class="job-title">INTERPRETACIÓN PROFESIONAL · Inglés–español C2</div>
+          <div class="job-desc">Trabajo como intérprete profesional, fortaleciendo habilidades de escucha activa, precisión, foco y toma de decisiones en tiempo real, aplicadas directamente a la coordinación y gestión audiovisual.</div>
+        </div>
+
+        <div class="job">
+          <div class="job-title">CINE · Ficción y proyectos autorales</div>
+          <div class="job-desc">Asistencia de producción y sonido directo en el cortometraje El fin justifica los miedos, seleccionado en festivales internacionales. Desarrollo actual de tesis de ficción en etapa de preproducción.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="portfolio">
+      <h2>Proyectos</h2>
+
+      <div class="grid">
+
+        <a class="card" href="https://vimeo.com/797010083" target="_blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnwNdpiFBNn69agE812cVSGKfsegNeryvgxg&s" alt="El fin justifica los miedos" style="object-fit:cover;object-position:center;" />
+        </a>
+
+        <a class="card" href="https://www.youtube.com/watch?v=3zEAPDGlBo0" target="_blank">
+          <img src="https://img.youtube.com/vi/3zEAPDGlBo0/maxresdefault.jpg" alt="Escape Perfecto" />
+        </a>
+
+        <a class="card" href="https://www.youtube.com/watch?v=CLmKjgvq5Ok" target="_blank">
+          <img src="https://img.youtube.com/vi/CLmKjgvq5Ok/maxresdefault.jpg" alt="Corona Sunsets" />
+        </a>
+
+        <a class="card" href="https://www.youtube.com/watch?v=XdnnaEjas00" target="_blank">
+          <img src="https://img.youtube.com/vi/XdnnaEjas00/maxresdefault.jpg" alt="Turismo Nación" />
+        </a>
+
+        <a class="card" href="https://www.youtube.com/watch?v=nLJpL1hPxRk" target="_blank">
+          <img src="https://img.youtube.com/vi/nLJpL1hPxRk/maxresdefault.jpg" alt="Los Anónimos" />
+        </a>
+
+        <a class="card" href="https://www.youtube.com/watch?v=-0CJSI7RRxg" target="_blank">
+          <img src="https://img.youtube.com/vi/-0CJSI7RRxg/maxresdefault.jpg" alt="La Tarde del Nueve" />
+        </a>
+
+        <a class="card" href="https://www.youtube.com/watch?v=ZlRhhl2Sp1I" target="_blank">
+          <img src="https://img.youtube.com/vi/ZlRhhl2Sp1I/maxresdefault.jpg" alt="Flechazo Amor Oculto" />
+        </a>
+
+      </div>
+    </section>
+
+    <footer>
+      <div>Argentina</div>
+      <div>victoria.comba@gmail.com</div>
+      <div>54 9 294 450 0309</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
